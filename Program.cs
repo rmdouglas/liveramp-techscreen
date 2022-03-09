@@ -7,7 +7,7 @@ namespace Solution
     public enum Direction {
         Up, Down, Left, Right
     };
-    public class Spiral
+    public readonly struct Spiral
     {
         private static Dictionary<Direction, (int, int)> Steps = new Dictionary<Direction, (int, int)>()
         {
@@ -23,8 +23,8 @@ namespace Solution
             { Direction.Left, Direction.Up },
             { Direction.Right, Direction.Down },
         };
-        private HashSet<(int, int)> data;
-        public int Size { get; private set; }
+        private readonly HashSet<(int, int)> data;
+        public readonly int Size;
         
         public bool IsSet(int x, int y) {
             return data.Contains((x, y));
